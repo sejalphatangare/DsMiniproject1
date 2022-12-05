@@ -86,7 +86,7 @@ public class Admin_info {
 
 //            CategoryRooms cr = new CategoryRooms(lst, price);
             }
-            System.out.println("\n\tDo you want to add more rooms:\n\tpress 1:");
+            System.out.println("\n\tDo you want to add more rooms of same category type:\n\tpress 1:");
         } while (sc.nextInt() == 1);
     }
 
