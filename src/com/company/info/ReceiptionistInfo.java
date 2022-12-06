@@ -7,7 +7,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ReceiptionistInfo {
-
     List<Double> lst;
     //get data all room type // category
     public List<Room> getCategoryRoom(CategoryRooms root){

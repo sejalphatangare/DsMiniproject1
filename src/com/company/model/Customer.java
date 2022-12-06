@@ -25,7 +25,9 @@ public class Customer {
         this.lst =new  LinkedList<>();
     }
 
+    public Customer(){
 
+    }
     public int getcId() {
         return cId;
     }

@@ -194,8 +194,9 @@ public class Admin_info {
 
 
     //search category
-    public void searchCategory(){
+    public CategoryRooms searchCategory(){
         CategoryRooms cur;
+        System.out.println("Enter the price of the room you want to search:");
             int key = sc.nextInt();
             cur = root;
             int flag = 0;
@@ -215,6 +216,7 @@ public class Admin_info {
                 System.out.println("Data not Found!");
 
             }
+            return cur;
         }
     //update category
     public void updateRoom(){
@@ -243,6 +245,7 @@ public class Admin_info {
             System.out.println("Data not Found!");
 
         }
+
     }
 
     public void inorder(CategoryRooms root){
