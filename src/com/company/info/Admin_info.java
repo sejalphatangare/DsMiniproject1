@@ -1,6 +1,6 @@
 package com.company.info;
 
-import com.company.model.CategoryRooms;
+import com.company.model.CategoryRooms;// importing package for this package
 import com.company.model.Room;
 
 import java.util.LinkedList;
@@ -41,7 +41,9 @@ public class Admin_info {
                 r1.setBeds(temp_beds);
                 System.out.println("Enter the if it is Ac Or Not:");
                 boolean temp_isAc = sc.nextBoolean();
+//                r1.setAC(temp_isAc);
                 r1.setAC(temp_isAc);
+
 //Room(int rId, String uniqueId, int rating, double price, String beds, String usageStatus, boolean isAC, ...)   Room()
 
 //                System.out.println("Room No :: " + (i + 1));

@@ -80,6 +80,9 @@ public class Room_info {
             case 3:{
                 System.out.println("\n\tEnter the Rating of the Room:");
                 int index_rating=sc.nextInt();
+                System.out.println("\n\tEnter new Rating of the Room:");
+                int new_roomRating=sc.nextInt();
+                temp.getLst().set(index_rating,temp.getLst().get(index_rating));
 
             }
         }

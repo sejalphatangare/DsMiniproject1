@@ -4,11 +4,11 @@ import java.util.List;
 public class CategoryRooms {
     private List<Room> lst;
 
-    public CategoryRooms getLeft() {
+    public CategoryRooms getLeft() {//
         return left;
     }
 
-    public void setLeft(CategoryRooms left) {
+    public void setLeft(CategoryRooms left) { // access
         this.left = left;
     }
 
