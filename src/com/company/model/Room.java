@@ -109,7 +109,7 @@ public class Room {
     @Override
     public String toString() {
         return "Room{" +
-                "rId=" + rId +
+                "Room Number=" + rId +
                 ", uniqueId='" + uniqueId + '\'' +
                 ", rating=" + rating +
                 ", beds=" + beds +

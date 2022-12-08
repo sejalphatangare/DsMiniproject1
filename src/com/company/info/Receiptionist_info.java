@@ -6,7 +6,7 @@ import com.company.model.Room;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ReceiptionistInfo {
+public class Receiptionist_info {
     List<Double> lst;
     //get data all room type // category
     public List<Room> getCategoryRoom(CategoryRooms root){
@@ -57,4 +57,9 @@ public class ReceiptionistInfo {
 
         }
     }
+//take feedback form
+
+
+
+//and pass it to Admin_info..
 }

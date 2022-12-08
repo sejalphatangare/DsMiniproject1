@@ -1,9 +1,6 @@
 package com.company.info;
-
 import com.company.model.CategoryRooms;
 import com.company.model.Room;
-
-import java.sql.SQLOutput;
 import java.util.*;
 import java.io.*;
 public class Room_info {
@@ -17,10 +14,11 @@ public class Room_info {
         Room r=new Room();
         //take info
 //      int rId, String uniqueId, int rating, int beds, String usageStatus, boolean isAC, String speciality, String description)
-        System.out.println("Enter the Room ID: ");
+        System.out.println("Enter the Room Number : ");
         r.setrId(sc.nextInt());
-        System.out.println("Enter the Unique ID of the room:");
+        System.out.println("Enter the Unique Room Number of the room:");
         r.setUniqueId(br.readLine());
+//        price_rid 2000-r102
 //        System.out.println("Enter the Rating of the room:");
 //        r.setRating(sc.nextInt());
 //        System.out.println("Enter the No of beds in the room:");
