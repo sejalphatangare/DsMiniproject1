@@ -7,31 +7,33 @@ public class Room_info {
     Scanner sc=new Scanner(System.in);
     InputStreamReader ir=new InputStreamReader(System.in);
     BufferedReader br=new BufferedReader(ir);
+    Admin_info a1=new Admin_info();
     //data
     public Room data(double price) throws IOException {
+        Room r1 = new Room();
+        System.out.println("Enter the Room Id:");
+        int temp_id = sc.nextInt();
+        r1.setrId(temp_id);
+        System.out.println("Enter the Room Unique Id:");
+        String temp_uniqueid = br.readLine();
+        r1.setUniqueId(temp_uniqueid);
+        System.out.println("Enter the Rating of the Room:");
+        int temp_rating = sc.nextInt();
+        r1.setRating(temp_rating);
+        System.out.println("Enter the Number of the Beds:");
+        int temp_beds = sc.nextInt();
+        r1.setBeds(temp_beds);
+        System.out.println("Enter the if it is Ac Or Not:");
+        boolean temp_isAc = sc.nextBoolean();
+        r1.setAC(temp_isAc);
+        //enter speciality
 
-
-        Room r=new Room();
-        //take info
-//      int rId, String uniqueId, int rating, int beds, String usageStatus, boolean isAC, String speciality, String description)
-        System.out.println("Enter the Room Number : ");
-        r.setrId(sc.nextInt());
-        System.out.println("Enter the Unique Room Number of the room:");
-        r.setUniqueId(br.readLine());
-//        price_rid 2000-r102
-//        System.out.println("Enter the Rating of the room:");
-//        r.setRating(sc.nextInt());
-//        System.out.println("Enter the No of beds in the room:");
-//        r.setBeds(sc.nextInt());
-//        System.out.println("Enter the Usage Status of the room")
-
-        return r;
+        return r1;
     }
 
     //add room
 
     public void addRoom() throws IOException {
-        Admin_info a1=new Admin_info();
         CategoryRooms temp=a1.searchCategory();
         Room r=data(temp.getPrice());
         temp.getLst().add(r);
@@ -40,50 +42,77 @@ public class Room_info {
 
     //deleteroom
     public void deleteRoom() throws IOException {
-        Admin_info a1=new Admin_info();
         CategoryRooms temp=a1.searchCategory();
-        Room r=data(temp.getPrice());
-        System.out.println("Selected room category:"+r.toString());
-        System.out.println("Enter the Room ID of the room to be Deleted");
-        int index_roomid=sc.nextInt();
-        temp.getLst().remove(index_roomid);
-        System.out.println("***Room of the corresponding category deleted***");
+        if(temp.getLst().size()>0){
+            Room r=temp.getLst().get(0);
+            System.out.println("Selected room category:"+r);
+
+            System.out.println("Enter the Room ID of the room to be Deleted");
+            int index_roomid=sc.nextInt();
+
+            temp.getLst().remove(index_roomid);
+            System.out.println("***Room of the corresponding category deleted***");
+        }
+        else{
+            System.out.println("****No rooms to be deleted****");
+        }
     }
 
-    //update room details
-    public void updateRoom() throws IOException {
-        Admin_info a1=new Admin_info();
-        CategoryRooms temp=new CategoryRooms();
-        Room r=data(temp.getPrice());
-        System.out.println("Selected room Category:"+r.toString());
-        System.out.println("Choose the Data to Update of the selected room:");
-//      int rId, String uniqueId, int rating, int beds, String usageStatus, boolean isAC, String speciality, String description
-        System.out.println("\n\t1]Room ID\n\t2]Unique ID\n\t3]Rating\n\t4]No of Beds\n\t5]Room is Ac or not:");
-        System.out.println("\n\tEnter your Choice:");
-        switch(sc.nextInt()){
-            case 1:{
-                System.out.println("Enter the Room ID of the room to Update:");
-                int index_roomid=sc.nextInt();
-                System.out.println("\n\tEnter new Room ID:");
-                int new_roomid=sc.nextInt();
-                temp.getLst().set(index_roomid,temp.getLst().get(new_roomid));
-            }
-            case 2:{
-                System.out.println("\n\tEnter the Room Unique ID to Update:");
-                int index_roomUniqueid=sc.nextInt();
-                System.out.println("\n\tEnter new Room Unique ID:");
-                String new_roomUniqueid=br.readLine();
-                temp.getLst().set(index_roomUniqueid,temp.getLst().get(Integer.parseInt(new_roomUniqueid)));
-            }
-            case 3:{
-                System.out.println("\n\tEnter the Rating of the Room:");
-                int index_rating=sc.nextInt();
-                System.out.println("\n\tEnter new Rating of the Room:");
-                int new_roomRating=sc.nextInt();
-                temp.getLst().set(index_rating,temp.getLst().get(index_rating));
 
+    public int search(List<Room> lst,int id){
+        for(int i=0;i<lst.size();i++){
+            if(lst.get(i).getrId()==id){
+                return i;
             }
         }
+        return -1;
+    }
+    //update room details
+    public void updateRoom() throws IOException {
+        CategoryRooms temp=new CategoryRooms();
+        if(temp.getLst().size()>0){
+            Room r=temp.getLst().get(0);
+            System.out.println("Selected room Category:"+r.toString());
+            System.out.println("Choose the Data to Update of the selected room:");
+//      int rId, String uniqueId, int rating, int beds, String usageStatus, boolean isAC, String speciality, String description
+            System.out.println("Enter the Room ID of the room to Update:");
+            int index_roomid=sc.nextInt();
+            int index=search(temp.getLst(),index_roomid);
+            if(index!=-1)
+            {
+                Room r1=temp.getLst().get(index);
+                System.out.println("\n\t1]Rating\n\t2]No of Beds\n\t3]Room is Ac or not\n\t4]speciality\n\t");
+                System.out.println("\n\tEnter your Choice:");
+                switch(sc.nextInt()){
+                    case 1:{
+                        System.out.println("\n\tEnter Rating:");
+                        int index_rating=sc.nextInt();
+                        r1.setRating(index_rating);
+                        break;
+                    }
+                    case 2:{
+                        System.out.println("\n\tEnter No. of beds ::");
+                        int index_beds=sc.nextInt();
+                        r1.setBeds(index_beds);
+                        break;
+                    }
+                    case 3:{
+                        System.out.println("Enter the if it is Ac Or Not:");
+                        boolean temp_isAc = sc.nextBoolean();
+                        r1.setAC(temp_isAc);
+                        break;
+                    }
+                    case 4:{
+                        System.out.println("Enter the speciality :: ");
+                        //set
+                    }
+                }
+            }
+            else {
+                System.out.println("No Room with this ID exists!!!");
+            }
+        }
+
     }
 
 }

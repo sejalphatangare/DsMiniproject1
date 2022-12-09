@@ -18,12 +18,12 @@ public class Room {
 
     private Customer c;
 
-    public Room(int rId, String uniqueId, int rating, int beds, String usageStatus, boolean isAC, String speciality, String description) {
+    public Room(int rId, String uniqueId, int rating, int beds, boolean isAC, String speciality, String description) {
         this.rId = rId;
         this.uniqueId = uniqueId;
         this.rating = rating;
         this.beds = beds;
-        this.usageStatus = usageStatus;
+        this.usageStatus = "false";
         this.isAC = isAC;
         this.speciality = speciality;
         this.description = description;

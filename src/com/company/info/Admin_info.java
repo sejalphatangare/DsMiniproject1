@@ -21,40 +21,23 @@ public class Admin_info {
     public void insert() throws IOException {
 //        Room_info ri=new Room_info();
         List<Room> lst = new LinkedList<>();
-
+        Room_info ri=new Room_info();
         do {
-            System.out.println("Enter the number of rooms you want to add :: ");
-            int n = sc.nextInt();
-            for (int i = 0; i < n; i++) {
-                Room r1 = new Room();
-                System.out.println("Enter the Room Id:");
-                int temp_id = sc.nextInt();
-                r1.setrId(temp_id);
-                System.out.println("Enter the Room Unique Id:");
-                String temp_uniqueid = br.readLine();
-                r1.setUniqueId(temp_uniqueid);
-                System.out.println("Enter the Rating of the Room:");
-                int temp_rating = sc.nextInt();
-                r1.setRating(temp_rating);
-                System.out.println("Enter the Number of the Beds:");
-                int temp_beds = sc.nextInt();
-                r1.setBeds(temp_beds);
-                System.out.println("Enter the if it is Ac Or Not:");
-                boolean temp_isAc = sc.nextBoolean();
-//                r1.setAC(temp_isAc);
-                r1.setAC(temp_isAc);
-
-//Room(int rId, String uniqueId, int rating, double price, String beds, String usageStatus, boolean isAC, ...)   Room()
-
-//                System.out.println("Room No :: " + (i + 1));
-//                Room room = ri.data(price);
-                lst.add(r1);
-            }
             CategoryRooms ptr = new CategoryRooms();
             ptr.setLst(lst);
             System.out.println("Enter the price of the room:");
             double temp_price = sc.nextDouble();
+
             ptr.setPrice(temp_price);
+
+            System.out.println("Enter the number of rooms you want to add :: ");
+            int n = sc.nextInt();
+
+            for (int i = 0; i < n; i++) {
+                Room r1=ri.data(temp_price);
+                lst.add(r1);
+            }
+
             CategoryRooms cur;
             if (root == null) {
                 ptr.setLeft(null);

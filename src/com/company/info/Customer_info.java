@@ -6,12 +6,12 @@ import java.io.*;
 import com.company.model.Customer;
 
 public class Customer_info {
-    Scanner sc=new Scanner(System.in);
-    InputStreamReader ir=new InputStreamReader(System.in);
-    BufferedReader br=new BufferedReader(ir);
+    static Scanner sc=new Scanner(System.in);
+    static InputStreamReader ir=new InputStreamReader(System.in);
+    static BufferedReader br=new BufferedReader(ir);
     static int k=0;
     //take user data
-    public Customer customerInfo() throws IOException {
+    public static Customer customerInfo() throws IOException {
 //int cId, String fname, String lname, String city, String phNo, String email, String adhharNo
         Customer c=new Customer();
             System.out.println("Enter the Customer Details:");

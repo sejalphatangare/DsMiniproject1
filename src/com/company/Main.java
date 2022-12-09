@@ -11,7 +11,6 @@ public class Main {
         //view all customers
 
         //customer
-
         //view room details
         //book room
     }
