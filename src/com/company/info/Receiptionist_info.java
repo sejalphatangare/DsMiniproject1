@@ -14,7 +14,6 @@ public class Receiptionist_info {
     InputStreamReader ir=new InputStreamReader(System.in);
     BufferedReader br=new BufferedReader(ir);
     Scanner sc=new Scanner(System.in);
-
     List<Room> lrooms;
     Customer c1=new Customer();
     //get data all room type // category
@@ -22,7 +21,6 @@ public class Receiptionist_info {
     public void inorder(CategoryRooms root){
         if (root!=null) {
             getCategoryRoom(root.getLeft());
-//            System.out.println("\n\t" + root.getLst().toString());
             if(root.getLst().size()>0){
                 lrooms.add(root.getLst().get(0));
             }
@@ -34,7 +32,6 @@ public class Receiptionist_info {
     public void inorderRange(CategoryRooms root,int a,int b){
         if (root!=null) {
             getCategoryRoom(root.getLeft());
-//            System.out.println("\n\t" + root.getLst().toString());
             if(root.getPrice()<=a && root.getPrice()>=b)
                 lst1.add(root);
             getCategoryRoom(root.getRight());
@@ -52,10 +49,8 @@ public class Receiptionist_info {
         Customer c=Customer_info.customerInfo();
         room.setC(c);
         room.setUsageStatus("true");
-
         c.getLst().add(room);
-
-        System.out.println("Room Booked :: ");
+        System.out.println("Room Booked : ");
         //display the booking details
         System.out.println(room);
     }
@@ -120,7 +115,6 @@ public class Receiptionist_info {
                 break;
             }
         }
-
        return new Pair(a,b);
     }
 

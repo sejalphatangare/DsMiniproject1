@@ -1,7 +1,9 @@
 package com.company.info;
 
+import com.company.model.Admin;
 import com.company.model.CategoryRooms;// importing package for this package
 import com.company.model.Room;
+import jdk.jfr.Category;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -11,7 +13,7 @@ import java.io.*;
 
 public class Admin_info {
     //create BST
-    CategoryRooms root = null;
+    public static CategoryRooms root = null;
     InputStreamReader ir = new InputStreamReader(System.in);
     BufferedReader br = new BufferedReader(ir);
 
@@ -32,12 +34,10 @@ public class Admin_info {
 
             System.out.println("Enter the number of rooms you want to add :: ");
             int n = sc.nextInt();
-
             for (int i = 0; i < n; i++) {
                 Room r1=ri.data(temp_price);
                 lst.add(r1);
             }
-
             CategoryRooms cur;
             if (root == null) {
                 ptr.setLeft(null);
@@ -64,19 +64,17 @@ public class Admin_info {
                             cur = cur.getRight();
                         }
                     }
-
-
                 }
-
-
 //            CategoryRooms cr = new CategoryRooms(lst, price);
             }
+            System.out.println("-----------------------------------------------------------------------");
             System.out.println("\n\tDo you want to add more rooms of same category type:\n\tpress 1:");
+            System.out.println("\n\tRooms Added Successfully!");
         } while (sc.nextInt() == 1);
     }
 
     //delete category
-    public void deletion(CategoryRooms cur, int ele) {
+    public void deletion(CategoryRooms cur, double ele) {
         if (root == null) {
             System.out.println("*******No Rooms******");
         } else {
@@ -114,7 +112,7 @@ public class Admin_info {
                 } else if (cur.getLeft() != null && cur.getRight() == null) {
                     if (parent == null) {
 //                        root is the node to delete and therfore parent ==null
-                        root = parent.getLeft();
+                        root = cur.getLeft();
                         cur.setLeft(null);
                         cur = null;
                     } else {
@@ -132,7 +130,7 @@ public class Admin_info {
                     }
                 } else if (cur.getRight() != null && cur.getLeft() == null) {
                     if (parent == null) {
-                        root = parent.getRight();
+                        root = cur.getRight();
                         cur.setRight(null);
                         cur = null;
                     } else {
@@ -175,6 +173,8 @@ public class Admin_info {
 
             }
         }
+        System.out.println("-----------------------------------------------------------------------");
+        System.out.println("\n\tROOM SUCCESSFULLY DELETED");
     }
 
 
@@ -188,7 +188,10 @@ public class Admin_info {
             while (cur != null) {
                 if (cur.getPrice() == key) {
                     flag = 1;
+                    System.out.println("-----------------------------------------------------------------------");
                     System.out.println("Data found" + cur.getPrice());
+                    System.out.println("-----------------------------------------------------------------------");
+
                     break;
                 }
                 if (cur.getPrice() > key) {
@@ -198,42 +201,26 @@ public class Admin_info {
                 }
             }
             if (flag == 0) {
+                System.out.println("-----------------------------------------------------------------------");
                 System.out.println("Data not Found!");
-
+                System.out.println("-----------------------------------------------------------------------");
             }
             return cur;
         }
     //update category
-    public void updateRoom(){
+    public void updateRoom() throws IOException {
+        Admin_info a=new Admin_info();
         CategoryRooms cur;
-        int key = sc.nextInt();
-        cur = root;
-        int flag = 0;
-        while (cur != null) {
-            if (cur.getPrice() == key) {
-                flag = 1;
-                CategoryRooms temp;
-                System.out.println("Data found" + cur.getPrice());
-                temp=cur;
-                System.out.println("Enter the New Date to Update:");
-                double newData=sc.nextDouble();
-                temp.setPrice(newData);
-                break;
-            }
-            if (cur.getPrice() > key) {
-                cur = cur.getLeft();
-            } else {
-                cur = cur.getRight();
-            }
-        }
-        if (flag == 0) {
-            System.out.println("Data not Found!");
-
-        }
-
+        cur=searchCategory();
+        System.out.println("Enter the New Date to Update:");
+        double newData=sc.nextDouble();
+//      System.out.println("\n\tWhat do you want to Update of the room price "+cur.getPrice()+" :");
+        a.deletion(root,cur.getPrice());
+        a.insert();
     }
 
     public void inorder(CategoryRooms root){
+        System.out.println("\n\t*********************ROOMS INFO*************************");
         if(root!=null){
             inorder(root.getLeft());
             System.out.println(root.getLst()+" "+root.getPrice());
@@ -246,6 +233,6 @@ public class Admin_info {
             ai.insert();
             System.out.println("Do you want to add more categories press 1");
         }while (sc.nextInt()==1);
-        ai.inorder(ai.root);
+        ai.inorder(root);
     }
 }

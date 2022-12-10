@@ -27,6 +27,53 @@ public class Room_info {
         boolean temp_isAc = sc.nextBoolean();
         r1.setAC(temp_isAc);
         //enter speciality
+        System.out.println("\n\tRoom Speciality: ");
+        //single , double triple , Queen sized, king sized , twin , hollywood twin room , double double , studio , Suite , Presidential suite
+        System.out.println("\n\t1]Single Room\n\t2]Double Room\n\t3]Triple Room\n\t4]Queen Sized\n\t5]King Sized\n\t6]Twin\n\t7]Hollywood Twin Room\n\t8]Double-Double\n\t9]Studio Room\n\tt10]Suite ");
+        System.out.println("\n\tEnter Your Choice:");
+        switch(sc.nextInt()){
+            case 1:{
+                r1.setSpeciality("Single");
+                break;
+            }
+            case 2:{
+                r1.setSpeciality("Double");
+                break;
+            }
+            case 3:{
+                r1.setSpeciality("Triple");
+                break;
+            }
+            case 4:{
+                r1.setSpeciality("Queen Sized");
+                break;
+            }
+            case 5:{
+                r1.setSpeciality("King Sized");
+                break;
+            }
+            case 6:{
+                r1.setSpeciality("Twin");
+                break;
+            }
+            case 7:{
+                r1.setSpeciality("Hollywood Twin");
+                break;
+            }
+            case 8:{
+                r1.setSpeciality("Double-Double");
+                break;
+            }
+            case 9:{
+                r1.setSpeciality("Studio");
+                break;
+            }
+            case 10:{
+                r1.setSpeciality("Suite");
+                break;
+            }
+        }
+
 
         return r1;
     }
@@ -37,6 +84,7 @@ public class Room_info {
         CategoryRooms temp=a1.searchCategory();
         Room r=data(temp.getPrice());
         temp.getLst().add(r);
+        System.out.println("\n\tRoom added successfully to the particular Category :");
     }
 
 
