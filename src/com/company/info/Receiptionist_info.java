@@ -45,7 +45,7 @@ public class Receiptionist_info {
         System.out.println(lrooms);
     }
 
-    public void bookRoomforCustomer(Room room) throws IOException {
+    public Room bookRoomforCustomer(Room room) throws IOException {
         Customer c=Customer_info.customerInfo();
         room.setC(c);
         room.setUsageStatus("true");
@@ -53,6 +53,8 @@ public class Receiptionist_info {
         System.out.println("Room Booked : ");
         //display the booking details
         System.out.println(room);
+        return room;
+//        getting booked price for bill payment..
     }
 
     public Room searchRoomForCustomer(CategoryRooms root,Pair p){
@@ -90,7 +92,6 @@ public class Receiptionist_info {
 
     public Pair display(){
         Room r=null;
-
         System.out.println("Select the range :: \n1.<=500 \n2.501 to 1000\n3.1001 to 1500\n4.>=1501");
         int a=Integer.MIN_VALUE;
         int b=Integer.MAX_VALUE;
