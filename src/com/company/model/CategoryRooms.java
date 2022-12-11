@@ -24,12 +24,21 @@ public class CategoryRooms {
     CategoryRooms left;
     CategoryRooms right;
 
-    public CategoryRooms(List<Room> lst, double price) {
-        this.lst = lst;
+    public CategoryRooms( double price) {
+        this.lst = null;
         this.price = price;
         left=null;
         right=null;
     }
+
+    @Override
+    public String toString() {
+        return "Category Type: " +
+                "Rooms " + lst +
+                ", Price = " + price +
+                '}';
+    }
+
     public CategoryRooms(){
 
     }

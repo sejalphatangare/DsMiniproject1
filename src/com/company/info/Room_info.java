@@ -8,6 +8,7 @@ public class Room_info {
     InputStreamReader ir=new InputStreamReader(System.in);
     BufferedReader br=new BufferedReader(ir);
     Admin_info a1=new Admin_info();
+    CategoryRooms c1=new CategoryRooms();
     //data
     public Room data(double price) throws IOException {
         Room r1 = new Room();
@@ -91,76 +92,131 @@ public class Room_info {
     //deleteroom
     public void deleteRoom() throws IOException {
         CategoryRooms temp=a1.searchCategory();
-        if(temp.getLst().size()>0){
-            Room r=temp.getLst().get(0);
-            System.out.println("Selected room category:"+r);
-
-            System.out.println("Enter the Room ID of the room to be Deleted");
-            int index_roomid=sc.nextInt();
-
-            temp.getLst().remove(index_roomid);
-            System.out.println("***Room of the corresponding category deleted***");
+        for (int i=0;i<temp.getLst().size();i++) {
+            System.out.println();
         }
-        else{
-            System.out.println("****No rooms to be deleted****");
-        }
+        Room temp_room=search();
+        temp.getLst().remove(temp_room);
     }
 
 
-    public int search(List<Room> lst,int id){
-        for(int i=0;i<lst.size();i++){
-            if(lst.get(i).getrId()==id){
-                return i;
+    public Room search(){
+        Room r1 = null;
+        CategoryRooms temp=a1.searchCategory();
+        System.out.println("\n\tEnter the room id you want to search:");
+        int search_id=sc.nextInt();
+        int flag=0;
+        for(int i=0;i<temp.getLst().size();i++){
+            if(temp.getLst().get(i).getrId()==search_id){
+                System.out.println("\n\tData Found"+temp.getLst().get(i).getrId()+" at "+temp.getLst().get(i)+" position");
+                flag=1;
+                r1=temp.getLst().get(i);
+                break;
             }
         }
-        return -1;
+        if(flag==0){
+            System.out.println("\n\tRoom Not Found!");
+        }
+        return r1;
     }
+    public void display_rooms(){
+    CategoryRooms temp=a1.searchCategory();
+        for (int i=0;i<temp.getLst().size();i++){
+            Room r1=temp.getLst().get(i);
+            System.out.println(r1);
+        }
+    }
+
     //update room details
     public void updateRoom() throws IOException {
-        CategoryRooms temp=new CategoryRooms();
-        if(temp.getLst().size()>0){
-            Room r=temp.getLst().get(0);
+
+       /* if(temp.getLst().size()>0){
             System.out.println("Selected room Category:"+r.toString());
             System.out.println("Choose the Data to Update of the selected room:");
 //      int rId, String uniqueId, int rating, int beds, String usageStatus, boolean isAC, String speciality, String description
             System.out.println("Enter the Room ID of the room to Update:");
             int index_roomid=sc.nextInt();
-            int index=search(temp.getLst(),index_roomid);
-            if(index!=-1)
-            {
-                Room r1=temp.getLst().get(index);
-                System.out.println("\n\t1]Rating\n\t2]No of Beds\n\t3]Room is Ac or not\n\t4]speciality\n\t");
-                System.out.println("\n\tEnter your Choice:");
-                switch(sc.nextInt()){
-                    case 1:{
-                        System.out.println("\n\tEnter Rating:");
-                        int index_rating=sc.nextInt();
-                        r1.setRating(index_rating);
-                        break;
-                    }
-                    case 2:{
-                        System.out.println("\n\tEnter No. of beds ::");
-                        int index_beds=sc.nextInt();
-                        r1.setBeds(index_beds);
-                        break;
-                    }
-                    case 3:{
-                        System.out.println("Enter the if it is Ac Or Not:");
-                        boolean temp_isAc = sc.nextBoolean();
-                        r1.setAC(temp_isAc);
-                        break;
-                    }
-                    case 4:{
-                        System.out.println("Enter the speciality :: ");
+//             index=search();*/
+//            if(index!=-1)
+        CategoryRooms temp=a1.searchCategory();
+        System.out.println("\n\tSelected Category Type: "+temp.getLst().toString());
+        Room temp_room=search();
+        System.out.println("\n\tSelected Room Details :"+temp_room.toString());
+        do{
+//                Room r1=temp.getLst().get(index);
+            System.out.println("\n\t1]Rating\n\t2]No of Beds\n\t3]Room is Ac or not\n\t4]speciality\n\t");
+            System.out.println("\n\tEnter your Choice:");
+            switch(sc.nextInt()) {
+                case 1: {
+                    System.out.println("\n\tEnter Rating:");
+                    int temp_rating = sc.nextInt();
+                    temp_room.setRating(temp_rating);
+                    break;
+                }
+                case 2: {
+                    System.out.println("\n\tEnter No. of beds ::");
+                    int temp_beds = sc.nextInt();
+                    temp_room.setBeds(temp_beds);
+                    break;
+                }
+                case 3: {
+                    System.out.println("Enter the if it is Ac Or Not:");
+                    boolean temp_isAc = sc.nextBoolean();
+                    temp_room.setAC(temp_isAc);
+                    break;
+                }
+                case 4: {
+                    System.out.println("Enter the speciality : ");
+                    System.out.println("\n\t1]Single Room\n\t2]Double Room\n\t3]Triple Room\n\t4]Queen Sized\n\t5]King Sized\n\t6]Twin\n\t7]Hollywood Twin Room\n\t8]Double-Double\n\t9]Studio Room\n\tt10]Suite ");
+                    System.out.println("\n\tEnter Your Choice:");
+                    switch (sc.nextInt()) {
+                        case 1: {
+                            temp_room.setSpeciality("Single");
+                            break;
+                        }
+                        case 2: {
+                            temp_room.setSpeciality("Double");
+                            break;
+                        }
+                        case 3: {
+                            temp_room.setSpeciality("Triple");
+                            break;
+                        }
+                        case 4: {
+                            temp_room.setSpeciality("Queen Sized");
+                            break;
+                        }
+                        case 5: {
+                            temp_room.setSpeciality("King Sized");
+                            break;
+                        }
+                        case 6: {
+                            temp_room.setSpeciality("Twin");
+                            break;
+                        }
+                        case 7: {
+                            temp_room.setSpeciality("Hollywood Twin");
+                            break;
+                        }
+                        case 8: {
+                            temp_room.setSpeciality("Double-Double");
+                            break;
+                        }
+                        case 9: {
+                            temp_room.setSpeciality("Studio");
+                            break;
+                        }
+                        case 10: {
+                            temp_room.setSpeciality("Suite");
+                            break;
+                        }
+
                         //set
                     }
                 }
+                break;
             }
-            else {
-                System.out.println("No Room with this ID exists!!!");
-            }
-        }
-
+        }while (sc.nextInt()==1);
     }
 
 }

@@ -27,7 +27,6 @@ public class Receiptionist_info {
             getCategoryRoom(root.getRight());
         }
     }
-
     List<CategoryRooms> lst1;
     public void inorderRange(CategoryRooms root,int a,int b){
         if (root!=null) {
@@ -43,6 +42,9 @@ public class Receiptionist_info {
         inorder(root);
         System.out.println("----------------Rooms--------------------");
         System.out.println(lrooms);
+    }
+    public void takedetailsfromCustomer() throws IOException {
+        Customer c=Customer_info.customerInfo();
     }
 
     public Room bookRoomforCustomer(Room room) throws IOException {

@@ -191,7 +191,6 @@ public class Admin_info {
                     System.out.println("-----------------------------------------------------------------------");
                     System.out.println("Data found" + cur.getPrice());
                     System.out.println("-----------------------------------------------------------------------");
-
                     break;
                 }
                 if (cur.getPrice() > key) {
@@ -220,19 +219,11 @@ public class Admin_info {
     }
 
     public void inorder(CategoryRooms root){
-        System.out.println("\n\t*********************ROOMS INFO*************************");
+//        System.out.println("\n\t*********************ROOMS INFO*************************");
         if(root!=null){
             inorder(root.getLeft());
             System.out.println(root.getLst()+" "+root.getPrice());
             inorder(root.getRight());
         }
-    }
-    public static void main(String[] args) throws IOException {
-        Admin_info ai=new Admin_info();
-        do{
-            ai.insert();
-            System.out.println("Do you want to add more categories press 1");
-        }while (sc.nextInt()==1);
-        ai.inorder(root);
     }
 }
