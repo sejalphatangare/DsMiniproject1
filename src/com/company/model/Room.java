@@ -79,7 +79,7 @@ public class Room {
     }
 
     public void setAC(boolean AC) {
-        isAC = AC;
+        isAC = true;
     }
 
     public String getSpeciality() {

@@ -143,26 +143,22 @@ public class Room_info {
         Room temp_room=search();
         System.out.println("\n\tSelected Room Details :"+temp_room.toString());
         do{
-//                Room r1=temp.getLst().get(index);
             System.out.println("\n\t1]Rating\n\t2]No of Beds\n\t3]Room is Ac or not\n\t4]speciality\n\t");
             System.out.println("\n\tEnter your Choice:");
             switch(sc.nextInt()) {
                 case 1: {
                     System.out.println("\n\tEnter Rating:");
-                    int temp_rating = sc.nextInt();
-                    temp_room.setRating(temp_rating);
+                    temp_room.setRating(3);
                     break;
                 }
                 case 2: {
                     System.out.println("\n\tEnter No. of beds ::");
-                    int temp_beds = sc.nextInt();
-                    temp_room.setBeds(temp_beds);
+                    temp_room.setBeds(3);
                     break;
                 }
                 case 3: {
                     System.out.println("Enter the if it is Ac Or Not:");
-                    boolean temp_isAc = sc.nextBoolean();
-                    temp_room.setAC(temp_isAc);
+                    temp_room.setAC(true);
                     break;
                 }
                 case 4: {
@@ -213,9 +209,10 @@ public class Room_info {
 
                         //set
                     }
+                    break;
                 }
-                break;
             }
+            System.out.println("\n\tDo you want to update more rooms: \n\tpress 1: ");
         }while (sc.nextInt()==1);
     }
 
