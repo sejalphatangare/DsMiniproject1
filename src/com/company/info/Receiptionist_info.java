@@ -22,14 +22,16 @@ public class Receiptionist_info {
         if (root!=null) {
             inorder(root.getLeft());
             if(root.getLst().size()>0){
-                if(root.getLst().get(root.getLst().size()-1).getUsageStatus().equalsIgnoreCase("false")){
+
                     lrooms.add(root.getLst().get(root.getLst().size()-1));
-                }
+
             }
             inorder(root.getRight());
         }
     }
-    List<CategoryRooms> lst1;
+//                    if(root.getLst().get(root.getLst().size()-1).getUsageStatus("false")){
+
+        List<CategoryRooms> lst1;
     public void inorderRange(CategoryRooms root,int a,int b){
         if (root!=null) {
             inorderRange(root.getLeft(),a,b);
@@ -73,7 +75,7 @@ public class Receiptionist_info {
             for(int i=0;i<lst1.size();i++){
                 List<Room> lstr=lst1.get(i).getLst();
                 for(int j=0;j<lstr.size();j++){
-                    if(lstr.get(j).getUsageStatus().equalsIgnoreCase("false")){
+                    if(lstr.get(j).getUsageStatus("false")){
                         r1=lstr.get(j);
                         break;
                     }
@@ -84,7 +86,7 @@ public class Receiptionist_info {
             for(int i=lst1.size()-1;i>=0;i--){
                 List<Room> lstr=lst1.get(i).getLst();
                 for(int j=0;j<lstr.size();j++){
-                    if(lstr.get(j).getUsageStatus().equalsIgnoreCase("false")){
+                    if(lstr.get(j).getUsageStatus("false")){
                         r1=lstr.get(j);
                         break;
                     }

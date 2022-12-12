@@ -128,6 +128,7 @@ public class Admin_info {
         insert_default(cr);
         insert_default(cr1);
         insert_default(cr2);
+
     }
 
     //delete category

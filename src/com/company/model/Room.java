@@ -74,8 +74,8 @@ public class Room {
         this.beds = beds;
     }
 
-    public String getUsageStatus() {
-        return usageStatus;
+   public boolean getUsageStatus(String aFalse) {
+        return false;
     }
 
     public void setUsageStatus(String usageStatus) {

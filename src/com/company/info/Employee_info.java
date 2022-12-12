@@ -27,7 +27,7 @@ public class Employee_info {
             d.add(d1);
             Employee d2=new Employee(2,"Mahesh Kelkar",77,'m',"Manager",4300);
             d.add(d2);
-            Employee d3=new Employee(3,"Khushi Patill",28,'f',"Receiptionist",2400);
+            Employee d3=new Employee(3,"Khushi Patil",28,'f',"Receiptionist",2400);
             d.add(d3);
             Employee d4=new Employee(4,"Raju Guptay",50,'m',"Security Guard",1500);
             d.add(d4);

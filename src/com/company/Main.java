@@ -237,7 +237,7 @@ public class Main {
                                                 int temp_book = sc.nextInt();
                                                 if (temp_book == 1) {
                                                     r2.bookRoomforCustomer(r, ci.getCustomerList());
-                                                    System.out.println("Your total bill is :: "+r.getPrice());
+                                                    System.out.println("******PAY BILL*****: "+r.getPrice());
                                                 } else {
                                                     System.out.println("Thank you Visit Again!");
                                                 }
