@@ -22,11 +22,11 @@ public class Customer {
         this.phNo = phNo;
         this.email = email;
         this.adhharNo = adhharNo;
-        this.lst =new  LinkedList<>();
+        this.lst =new LinkedList<>();
     }
 
     public Customer(){
-
+        lst=new LinkedList<>();
     }
     public int getcId() {
         return cId;
@@ -88,7 +88,21 @@ public class Customer {
         return lst;
     }
 
+
     public void setLst(List<Room> lst) {
         this.lst = lst;
+    }
+
+    @Override
+    public String toString() {
+        return
+                " \n cId=" + cId +
+                ", fname='" + fname + '\t' +
+                ", lname='" + lname + '\'' +
+                ", city='" + city + '\'' +
+                ", phNo='" + phNo + '\'' +
+                ", email='" + email + '\'' +
+                ", adhharNo='" + adhharNo + '\'' +
+                ", lst=" + lst +"\n";
     }
 }

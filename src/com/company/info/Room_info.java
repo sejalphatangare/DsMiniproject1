@@ -141,24 +141,25 @@ public class Room_info {
         CategoryRooms temp=a1.searchCategory();
         System.out.println("\n\tSelected Category Type: "+temp.getLst().toString());
         Room temp_room=search();
-        System.out.println("\n\tSelected Room Details :"+temp_room.toString());
+//        System.out.println("\n\tSelected Room Details :"+temp_room.toString());
         do{
             System.out.println("\n\t1]Rating\n\t2]No of Beds\n\t3]Room is Ac or not\n\t4]speciality\n\t");
             System.out.println("\n\tEnter your Choice:");
             switch(sc.nextInt()) {
                 case 1: {
                     System.out.println("\n\tEnter Rating:");
-                    temp_room.setRating(3);
+                    temp_room.setRating(sc.nextInt());
                     break;
                 }
                 case 2: {
                     System.out.println("\n\tEnter No. of beds ::");
-                    temp_room.setBeds(3);
+                    temp_room.setBeds(sc.nextInt());
                     break;
                 }
                 case 3: {
                     System.out.println("Enter the if it is Ac Or Not:");
-                    temp_room.setAC(true);
+                    boolean temp_ac=sc.nextBoolean();
+                    temp_room.setAC(temp_ac);
                     break;
                 }
                 case 4: {
@@ -209,7 +210,7 @@ public class Room_info {
 
                         //set
                     }
-                    break;
+
                 }
             }
             System.out.println("\n\tDo you want to update more rooms: \n\tpress 1: ");

@@ -36,6 +36,7 @@ public class Admin_info {
             int n = sc.nextInt();
             for (int i = 0; i < n; i++) {
                 Room r1=ri.data(temp_price);
+                r1.setPrice(temp_price);
                 lst.add(r1);
             }
             CategoryRooms cur;
@@ -71,6 +72,61 @@ public class Admin_info {
             System.out.println("\n\tDo you want to add more rooms of same category type:\n\tpress 1:");
             System.out.println("\n\tRooms Added Successfully!");
         } while (sc.nextInt() == 1);
+    }
+    public void insert_default(CategoryRooms cr)  {
+        if (root == null) {
+            root = cr;
+        } else {
+            CategoryRooms cur;
+            cur = root;
+            while (cur != null) {
+                if (cur.getPrice() > cr.getPrice()) {
+                    if (cur.getLeft() == null) {
+                        cur.setLeft(cr);
+                        break;
+                    } else {
+                        cur = cur.getLeft();
+                    }
+                } else {
+                    if (cur.getRight() == null) {
+                        cur.setRight(cr);
+                        break;
+                    } else {
+                        cur = cur.getRight();
+                    }
+                }
+            }
+        }
+    }
+    public void data(){
+        //        int rId, String uniqueId, int rating, int beds, boolean isAC, String speciality, String description
+        CategoryRooms cr=new CategoryRooms();
+        List<Room> lst=new LinkedList<>();
+        cr.setLst(lst);
+        Room r1=new Room(1,"1000-1",1,1,false,"Single",null);
+        cr.setPrice(1000);
+        r1.setPrice(cr.getPrice());
+        cr.getLst().add(r1);
+
+        CategoryRooms cr1=new CategoryRooms();
+        lst=new LinkedList<>();
+        cr1.setLst(lst);
+        Room r2=new Room(1,"2000-1",2,2,true,"Single",null);
+        cr1.setPrice(2000);
+        r2.setPrice(cr1.getPrice());
+        cr1.getLst().add(r2);
+
+        CategoryRooms cr2=new CategoryRooms();
+        lst=new LinkedList<>();
+        cr2.setLst(lst);
+        Room r3=new Room(1,"150-1",2,1,false,"Single",null);
+        cr2.setPrice(150);
+        r3.setPrice(cr2.getPrice());
+        cr2.getLst().add(r3);
+
+        insert_default(cr);
+        insert_default(cr1);
+        insert_default(cr2);
     }
 
     //delete category

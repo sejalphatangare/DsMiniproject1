@@ -22,7 +22,6 @@ public class Employee_info {
         d=new LinkedList<Employee>();
     }
     public Employee_info(){
-
     }
     public void employeesInitialData(){
             Employee d1=new Employee(1,"Rajesh Kumarr",33,'m',"Housekeeping",1000);
@@ -36,7 +35,6 @@ public class Employee_info {
             Employee d5=new Employee(5,"Manasvi Shinde",36,'f',"Cleaner",2000);
             d.add(d5);
         }
-
         Scanner sc=new Scanner(System.in);
 
         public void viewemployeeDetails(){
@@ -48,7 +46,7 @@ public class Employee_info {
                     System.out.println("\nID\t\tEmployeeName\t\tAge\t\tSex\t\tWorkingArea");
                     System.out.println("--------------------------------------------------------------------------------");
                     for(int i=0;i<d.size();i++){
-                        System.out.println(d.get(i).getEmployeeID() + "\t\t"+d.get(i).getEmployeeName()+"\t\t"+d.get(i).getAge()+"\t\t "+d.get(i).getEmployeeSex()+"\t\t"+d.get(i).getEmployeeWorkingArea());
+                        System.out.println(d.get(i).getEmployeeID() + "\t\t" +d.get(i).getEmployeeName()+"\t\t"+d.get(i).getAge()+"\t\t "+d.get(i).getEmployeeSex()+"\t\t"+d.get(i).getEmployeeWorkingArea());
                     }
                     System.out.println("---------------------------------------------------------------------------------");
                     break;
@@ -69,13 +67,10 @@ public class Employee_info {
                 }
             }
         }
-
-
-
         public void addEmployee(){
             do {
                 System.out.println("Enter the Employee details :- \n ");
-                int i = d.get(d.size()-1).getEmployeeID() + 1; //assigning new doctor id at end of the list
+                int i = d.get(d.size()-1).getEmployeeID() + 1;  //assigning new doctor id at end of the list
                 System.out.println("Enter the Employee Name ");
                 String name = sc.next();
                 boolean flag=false;

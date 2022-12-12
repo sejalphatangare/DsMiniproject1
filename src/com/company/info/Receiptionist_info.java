@@ -20,20 +20,24 @@ public class Receiptionist_info {
 
     public void inorder(CategoryRooms root){
         if (root!=null) {
-            getCategoryRoom(root.getLeft());
+            inorder(root.getLeft());
             if(root.getLst().size()>0){
-                lrooms.add(root.getLst().get(0));
+                if(root.getLst().get(root.getLst().size()-1).getUsageStatus().equalsIgnoreCase("false")){
+                    lrooms.add(root.getLst().get(root.getLst().size()-1));
+                }
             }
-            getCategoryRoom(root.getRight());
+            inorder(root.getRight());
         }
     }
     List<CategoryRooms> lst1;
     public void inorderRange(CategoryRooms root,int a,int b){
         if (root!=null) {
-            getCategoryRoom(root.getLeft());
-            if(root.getPrice()<=a && root.getPrice()>=b)
+            inorderRange(root.getLeft(),a,b);
+//            System.out.println(root.getPrice());
+            if(root.getPrice()>=a && root.getPrice()<=b) {
                 lst1.add(root);
-            getCategoryRoom(root.getRight());
+            }
+            inorderRange(root.getRight(),a,b);
         }
     }
 
@@ -41,27 +45,27 @@ public class Receiptionist_info {
         lrooms=new LinkedList<>();
         inorder(root);
         System.out.println("----------------Rooms--------------------");
-        System.out.println(lrooms);
+        for(int i=0;i<lrooms.size();i++){
+            System.out.println(lrooms.get(i));
+        }
     }
-    public void takedetailsfromCustomer() throws IOException {
-        Customer c=Customer_info.customerInfo();
-    }
-
-    public Room bookRoomforCustomer(Room room) throws IOException {
-        Customer c=Customer_info.customerInfo();
-        room.setC(c);
+    public Room bookRoomforCustomer(Room room,List<Customer> lst) throws IOException {
+        Customer temp=Customer_info.customerInfo();
+        lst.add(temp);
+        room.setC(temp);
         room.setUsageStatus("true");
-        c.getLst().add(room);
+        temp.getLst().add(room);
         System.out.println("Room Booked : ");
         //display the booking details
         System.out.println(room);
         return room;
 //        getting booked price for bill payment..
     }
-
     public Room searchRoomForCustomer(CategoryRooms root,Pair p){
+
         lst1=new LinkedList<>();
         inorderRange(root,p.getA(),p.getB());
+//        System.out.println(lst1);
         System.out.println("Enter choice \n1-Low to High \n2-High to low");
         int c=sc.nextInt();
         Room r1=null;

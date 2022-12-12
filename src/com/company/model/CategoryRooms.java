@@ -31,14 +31,6 @@ public class CategoryRooms {
         right=null;
     }
 
-    @Override
-    public String toString() {
-        return "Category Type: " +
-                "Rooms " + lst +
-                ", Price = " + price +
-                '}';
-    }
-
     public CategoryRooms(){
 
     }
@@ -48,6 +40,14 @@ public class CategoryRooms {
 
     public void setLst(List<Room> lst) {
         this.lst = lst;
+    }
+
+    @Override
+    public String toString() {
+        return "CategoryRooms{" +
+                "lst=" + lst +
+                ", price=" + price +
+                '}';
     }
 
     public double getPrice() {

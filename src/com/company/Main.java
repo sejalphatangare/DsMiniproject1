@@ -12,18 +12,20 @@ public class Main {
         BufferedReader br = new BufferedReader(ir);
         Admin_info a1 = new Admin_info();
         Room_info r1 = new Room_info();
-        Room r=new Room();
+        Room r=null;
         CategoryRooms c1 = new CategoryRooms();
         Customer cu = new Customer();
         Customer_info ci=new Customer_info();
+
         Employee_info e1=new Employee_info();
         Employee e=new Employee();
         Receiptionist_info r2=new Receiptionist_info();
-
-        System.out.println("\n\t-*******************************************************");
-        System.out.println("\n\t---------------WELCOME TO GREEN lAND HOTEL----------------- ");
-        System.out.println("\n\t-*******************************************************");
-        System.out.println("\n\t__________________________LOGIN___________________________");
+        a1.data();
+        double bill = 0;
+        System.out.println("\n\t-************************************************************");
+        System.out.println("\n\t---------------WELCOME TO GREEN lAND HOTEL------------------ ");
+        System.out.println("\n\t-************************************************************");
+        System.out.println("\n\t__________________________LOGIN______________________________");
         do {
 //        ask for admin,customer or customer
             System.out.println("\n\tWho are you?");
@@ -72,7 +74,11 @@ public class Main {
                                                             break;
                                                         }
                                                         case 5: {
-                                                            System.out.println("\n\t Not done yet ");
+                                                            List<Customer> lst1=ci.getCustomerList();
+                                                            for(int i=0;i<lst1.size();i++){
+                                                                System.out.println(lst1.get(i));
+                                                            }
+                                                            break;
                                                         }
                                                     }
                                                     System.out.println("\n\tDo you continue working on Categories: \n\tpress 1:");
@@ -185,32 +191,35 @@ public class Main {
                         if (password.equalsIgnoreCase("Receptionist")){
                             System.out.println("\n\tLogged in Successfully");
                             do{
-                                System.out.println("\n\t1]View available Rooms\n\t2]Register Customer\n\t3]Search room for Customer: \n\t4]Display Rooms\n\t5]Book Room for Customer :\n\t ");
-                                System.out.println("\n\tDo you want to continue as a Receptionist: \n\tpress 1:");
+                                
+                                System.out.println("\n\t1]View available Rooms\n\t\n\t2]Search room for Customer:");
+
                                 switch (sc.nextInt()) {
                                     case 1: {
-                                        r2.inorder(Admin_info.root);
-                                        break;
-                                    }
-                                    case 2: {
-                                        r2.takedetailsfromCustomer();
-                                        break;
-                                    }
-                                    case 3: {
-                                        Pair p1 = new Pair();
-                                        Pair pair = r2.display();
-                                        r2.searchRoomForCustomer(Admin_info.root, pair);
-                                        break;
-                                    }
-                                    case 4:{
                                         r2.getCategoryRoom(Admin_info.root);
                                         break;
                                     }
-                                    case 5:{
-                                        r2.bookRoomforCustomer(r);
-                                        break;
+                                    case 2: {
+//                                        do {
+                                            Pair pair = r2.display();
+                                            r = r2.searchRoomForCustomer(Admin_info.root, pair);
+                                            if (r != null) {
+                                                System.out.println("This Room is Available for you: \n\tDo you want to Book this room: " + r);
+                                                int temp_book = sc.nextInt();
+                                                if (temp_book == 1) {
+                                                    r2.bookRoomforCustomer(r, ci.getCustomerList());
+                                                    System.out.println("Your total bill is :: "+r.getPrice());
+                                                } else {
+                                                    System.out.println("Thank you Visit Again!");
+                                                }
+                                            } else {
+                                                System.out.println("Room Not Available!!");
+                                            }
+//                                            System.out.println("\n\tDo you want to book more rooms: ");
+//                                        }while (sc.nextInt()==1);
                                     }
                                 }
+                                System.out.println("\n\tDo you want to continue as a Receptionist: \n\tpress 1:");
                             }while(sc.nextInt()==1);
                         }else{
                             System.out.println("\n\t-----------------ACCESS DENIED-----------------!\n\t\tWRONG PASSWORD");
@@ -219,6 +228,7 @@ public class Main {
                     }while(sc.nextInt()==1);
                 }
             }
+            System.out.println("Do you want to login in another role press 1");
         } while (sc.nextInt() == 1);
         System.out.println("\n\t*************Thank you! Visit again**************");
     }

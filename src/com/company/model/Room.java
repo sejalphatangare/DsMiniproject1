@@ -3,7 +3,6 @@ package com.company.model;
 public class Room {
     private int rId;
     private String uniqueId;
-
     //1,2,3,4,5
     private int rating;
     //single , double triple , Queen sized, king sized , twin , hollywood twin room , double double , studio , Suite , Presidential suite
@@ -15,6 +14,15 @@ public class Room {
     private String speciality;
 
     private String description;
+    private double price;
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
     private Customer c;
 
@@ -108,17 +116,15 @@ public class Room {
 
     @Override
     public String toString() {
-        return "Room{" +
-                "Room Number =" + rId +
+        return
+                " \nRoom Number =" + rId +
                 ", Unique Room ='" + uniqueId + '\'' +
                 ", Rating of the Room =" + rating +
                 ", No. of Beds=" + beds +
                 ", Status ='" + usageStatus + '\'' +
                 ", Ac=" + isAC +
                 ", speciality='" + speciality + '\'' +
-                ", description='" + description + '\'' +
-                ", c=" + c +
-                '}';
+                ", description='" + description + '\'' ;
     }
 }
 
