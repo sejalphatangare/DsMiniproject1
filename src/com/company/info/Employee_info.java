@@ -18,11 +18,10 @@ import java.util.Scanner;
 public class Employee_info {
     LinkedList<Employee> d;
 
-    public Employee_info(LinkedList<Employee> d) {
-        d=new LinkedList<Employee>();
+    public Employee_info() {
+        d = new LinkedList<Employee>();
     }
-    public Employee_info(){
-    }
+
     public void employeesInitialData(){
             Employee d1=new Employee(1,"Rajesh Kumarr",33,'m',"Housekeeping",1000);
             d.add(d1);

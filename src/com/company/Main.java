@@ -21,15 +21,44 @@ public class Main {
         Employee e=new Employee();
         Receiptionist_info r2=new Receiptionist_info();
         a1.data();
+        e1.employeesInitialData();
         double bill = 0;
-        System.out.println("\n\t-************************************************************");
-        System.out.println("\n\t---------------WELCOME TO GREEN lAND HOTEL------------------ ");
-        System.out.println("\n\t-************************************************************");
+        System.out.println("\n");
+        System.out.println("\n\t------------------------------WELCOME TO GREEN lAND HOTEL------------------------------------- ");
+
+        System.out.println(
+                "__________________________________________________________________________________________________________________");
+        System.out.println(
+                "|                        !!! Welcome to heavenly stay amidst the spectacular beauty !!!                           |");
+        System.out.println(
+                "|*****************************Experience world-class service at Greenland Resort**********************************| ");
+        System.out.println(
+                "|             Each room has a private bathroom equipped with a shower and a hairdryer,                            | ");
+        System.out.println(
+                "|             while selected rooms are fitted with a kitchenette fitted with a minibar.                           |");
+        System.out.println(
+                "|                      At the resort all rooms include bed linen and towels.                                      |");
+        System.out.println(
+                "|                                                                                                                 |");
+        System.out.println(
+                "|                      Our luxurious resort is perfect for all functions like                                     |");
+        System.out.println(
+                "|                    1.Wedding                 2.Anniversaries                                                    | ");
+        System.out.println(
+                "|                    3.Birthdays               4.Engagements                                                      |  ");
+        System.out.println(
+                "|                    5.Conference              6.Various Activities                                               |  ");
+        System.out.println(
+                "|_________________________________________________________________________________________________________________|");
+
+        System.out.println("\n");
         System.out.println("\n\t__________________________LOGIN______________________________");
+
+
         do {
 //        ask for admin,customer or customer
             System.out.println("\n\tWho are you?");
-            System.out.println("\n\t1]Admin\n\t2]Receptionist\n\t3]Customer");
+            System.out.println("\n\t1]Admin\n\t2]Receptionist\n\t");
             switch (sc.nextInt()) {
 //            admin
                 case 1: {
