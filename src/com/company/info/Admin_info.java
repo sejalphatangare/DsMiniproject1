@@ -1,9 +1,8 @@
 package com.company.info;
 
-import com.company.model.Admin;
 import com.company.model.CategoryRooms;// importing package for this package
 import com.company.model.Room;
-import jdk.jfr.Category;
+
 
 import java.util.LinkedList;
 import java.util.List;
