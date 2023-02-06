@@ -229,7 +229,6 @@ public class Main {
                                         break;
                                     }
                                     case 2: {
-//                                        do {
                                             Pair pair = r2.display();
                                             r = r2.searchRoomForCustomer(Admin_info.root, pair);
                                             if (r != null) {
@@ -244,8 +243,6 @@ public class Main {
                                             } else {
                                                 System.out.println("Room Not Available!!");
                                             }
-//                                            System.out.println("\n\tDo you want to book more rooms: ");
-//                                        }while (sc.nextInt()==1);
                                     }
                                 }
                                 System.out.println("\n\tDo you want to continue as a Receptionist: \n\tpress 1:");

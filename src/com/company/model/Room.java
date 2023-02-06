@@ -1,20 +1,31 @@
 package com.company.model;
 
-public class Room {
+public class
+
+
+Room {
+    private boolean usageStatus;
     private int rId;
     private String uniqueId;
     //1,2,3,4,5
     private int rating;
     //single , double triple , Queen sized, king sized , twin , hollywood twin room , double double , studio , Suite , Presidential suite
     private int beds;
-    private String usageStatus;
-    private boolean isAC;
+    private int isAC;
 
     //deluxe , super deluxe
     private String speciality;
 
     private String description;
     private double price;
+
+    public boolean isUsageStatus() {
+        return usageStatus;
+    }
+
+    public void setUsageStatus(boolean usageStatus) {
+        this.usageStatus = usageStatus;
+    }
 
     public double getPrice() {
         return price;
@@ -26,15 +37,29 @@ public class Room {
 
     private Customer c;
 
-    public Room(int rId, String uniqueId, int rating, String usageStatus,int beds, boolean isAC, String speciality, String description) {
+    public void setAC(int isAC) {
+        this.isAC = isAC;
+    }
+    public int getAC() {
+        return isAC;
+    }
+
+//    public void setUsageStatus(boolean usageStatus) {
+//        this.usageStatus = usageStatus;
+//    }
+//    public boolean isUsageStatus() {
+//        return usageStatus;
+//    }
+
+    public Room(int rId, String uniqueId, int rating, int beds, int isAC, String speciality, String description,Boolean usageStatus) {
         this.rId = rId;
         this.uniqueId = uniqueId;
         this.rating = rating;
         this.beds = beds;
-        this.usageStatus ="false";
         this.isAC = isAC;
         this.speciality = speciality;
         this.description = description;
+        this.usageStatus=usageStatus;
         c=null;
     }
     public Room(){
@@ -74,22 +99,6 @@ public class Room {
         this.beds = beds;
     }
 
-   public boolean getUsageStatus(String aFalse) {
-        return false;
-    }
-
-    public void setUsageStatus(String usageStatus) {
-        this.usageStatus = usageStatus;
-    }
-
-    public boolean isAC() {
-        return isAC;
-    }
-
-    public void setAC(boolean AC) {
-        isAC = true;
-    }
-
     public String getSpeciality() {
         return speciality;
     }
@@ -126,5 +135,7 @@ public class Room {
                 ", speciality='" + speciality + '\'' +
                 ", description='" + description + '\'' ;
     }
+
+
 }
 

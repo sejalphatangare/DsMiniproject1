@@ -29,13 +29,10 @@ public class Receiptionist_info {
             inorder(root.getRight());
         }
     }
-//                    if(root.getLst().get(root.getLst().size()-1).getUsageStatus("false")){
-
         List<CategoryRooms> lst1;
     public void inorderRange(CategoryRooms root,int a,int b){
         if (root!=null) {
             inorderRange(root.getLeft(),a,b);
-//            System.out.println(root.getPrice());
             if(root.getPrice()>=a && root.getPrice()<=b) {
                 lst1.add(root);
             }
@@ -55,7 +52,7 @@ public class Receiptionist_info {
         Customer temp=Customer_info.customerInfo();
         lst.add(temp);
         room.setC(temp);
-        room.setUsageStatus("true");
+        room.setUsageStatus(true);
         temp.getLst().add(room);
         System.out.println("Room Booked : ");
         //display the booking details
@@ -64,18 +61,18 @@ public class Receiptionist_info {
 //        getting booked price for bill payment..
     }
     public Room searchRoomForCustomer(CategoryRooms root,Pair p){
-
         lst1=new LinkedList<>();
         inorderRange(root,p.getA(),p.getB());
-//        System.out.println(lst1);
+        System.out.println(lst1);
         System.out.println("Enter choice \n1-Low to High \n2-High to low");
         int c=sc.nextInt();
         Room r1=null;
+        System.out.println(lst1);
         if(c==1){
             for(int i=0;i<lst1.size();i++){
                 List<Room> lstr=lst1.get(i).getLst();
                 for(int j=0;j<lstr.size();j++){
-                    if(lstr.get(j).getUsageStatus("false")){
+                    if(!lstr.get(j).isUsageStatus()){
                         r1=lstr.get(j);
                         break;
                     }
@@ -86,13 +83,14 @@ public class Receiptionist_info {
             for(int i=lst1.size()-1;i>=0;i--){
                 List<Room> lstr=lst1.get(i).getLst();
                 for(int j=0;j<lstr.size();j++){
-                    if(lstr.get(j).getUsageStatus("false")){
+                    if(!lstr.get(j).isUsageStatus()){
                         r1=lstr.get(j);
                         break;
                     }
                 }
             }
         }
+
         return r1;
     }
     //booking data

@@ -102,7 +102,7 @@ public class Admin_info {
         CategoryRooms cr=new CategoryRooms();
         List<Room> lst=new LinkedList<>();
         cr.setLst(lst);
-        Room r1=new Room(1,"1000-1",3,"false",1,false,"Single",null);
+        Room r1=new Room(1,"1000-1",3, 1,0,"Single",null,false);
         cr.setPrice(1000);
         r1.setPrice(cr.getPrice());
         cr.getLst().add(r1);
@@ -110,7 +110,7 @@ public class Admin_info {
         CategoryRooms cr1=new CategoryRooms();
         lst=new LinkedList<>();
         cr1.setLst(lst);
-        Room r2=new Room(1,"2000-1",3,"false",2,false,"Single",null);
+        Room r2=new Room(1,"2000-1",3, 2,0,"Single",null,false);
         cr1.setPrice(2000);
         r2.setPrice(cr1.getPrice());
         cr1.getLst().add(r2);
@@ -119,7 +119,7 @@ public class Admin_info {
         CategoryRooms cr2=new CategoryRooms();
         lst=new LinkedList<>();
         cr2.setLst(lst);
-        Room r3=new Room(1,"150-1",1,"false",1,false,"Single",null);
+        Room r3=new Room(1,"150-1",1, 1,0,"Single",null,false);
         cr2.setPrice(150);
         r3.setPrice(cr2.getPrice());
         cr2.getLst().add(r3);
@@ -264,7 +264,7 @@ public class Admin_info {
             return cur;
         }
     //update category
-    public void updateRoom() throws IOException {
+    /*public void updateRoom() throws IOException {
         Admin_info a=new Admin_info();
         CategoryRooms cur;
         cur=searchCategory();
@@ -273,7 +273,7 @@ public class Admin_info {
 //      System.out.println("\n\tWhat do you want to Update of the room price "+cur.getPrice()+" :");
         a.deletion(root,cur.getPrice());
         a.insert();
-    }
+    }*/
 
     public void inorder(CategoryRooms root){
 //        System.out.println("\n\t*********************ROOMS INFO*************************");

@@ -25,7 +25,7 @@ public class Room_info {
         int temp_beds = sc.nextInt();
         r1.setBeds(temp_beds);
         System.out.println("Enter the if it is Ac Or Not:");
-        boolean temp_isAc = sc.nextBoolean();
+        int temp_isAc = sc.nextInt();
         r1.setAC(temp_isAc);
         //enter speciality
         System.out.println("\n\tRoom Speciality: ");
@@ -158,7 +158,7 @@ public class Room_info {
                 }
                 case 3: {
                     System.out.println("Enter the if it is Ac Or Not:");
-                    boolean temp_ac=sc.nextBoolean();
+                    int temp_ac=sc.nextInt();
                     temp_room.setAC(temp_ac);
                     break;
                 }

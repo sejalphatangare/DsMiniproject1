@@ -78,7 +78,7 @@ public class Employee_info {
                     try{
                         System.out.println("Enter the Employee Age ");
                         age = sc.nextInt();
-                        if(age<23 || age>100){
+                        if(age<23 || age>65){
                             throw new Exception(); //exception is thrown if age isn't appropriate
                         }
                         flag=true;
@@ -151,9 +151,10 @@ public class Employee_info {
         public LinkedList<Integer> searchEmployee(String s){
             LinkedList<Integer> empindex=new LinkedList<>();
             for(int i=0;i<d.size();i++){
-                if(Objects.equals(s, d.get(i).getEmployeeWorkingArea())){
+                if(s.equals(d.get(i).getEmployeeWorkingArea())){
                     empindex.add(i);
                 }
+//                Objects.equals(s, d.get(i).getEmployeeWorkingArea()
             }
             return empindex;
         }
