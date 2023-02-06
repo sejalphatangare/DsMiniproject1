@@ -83,20 +83,32 @@ public class Room_info {
 
     public void addRoom() throws IOException {
         CategoryRooms temp=a1.searchCategory();
-        Room r=data(temp.getPrice());
-        temp.getLst().add(r);
-        System.out.println("\n\tRoom added successfully to the particular Category :");
+        if(temp!=null){
+            Room r=data(temp.getPrice());
+            temp.getLst().add(r);
+            System.out.println("\n\tRoom added successfully to the particular Category :");
+        }else{
+            System.out.println("-----------------------------------------------------------------------");
+            System.out.println("Data not Found!");
+            System.out.println("-----------------------------------------------------------------------");        }
+
     }
 
 
     //deleteroom
     public void deleteRoom() throws IOException {
         CategoryRooms temp=a1.searchCategory();
+        if(temp!=null){
         for (int i=0;i<temp.getLst().size();i++) {
             System.out.println();
         }
         Room temp_room=search();
         temp.getLst().remove(temp_room);
+
+        }else{
+            System.out.println("-----------------------------------------------------------------------");
+            System.out.println("Data not Found!");
+            System.out.println("-----------------------------------------------------------------------");        }
     }
 
 
@@ -140,7 +152,22 @@ public class Room_info {
 //            if(index!=-1)
         CategoryRooms temp=a1.searchCategory();
         System.out.println("\n\tSelected Category Type: "+temp.getLst().toString());
-        Room temp_room=search();
+//        Room temp_room=search();
+        Room temp_room = null;
+        System.out.println("\n\tEnter the room id you want to search:");
+        int search_id=sc.nextInt();
+        int flag=0;
+        for(int i=0;i<temp.getLst().size();i++){
+            if(temp.getLst().get(i).getrId()==search_id){
+                System.out.println("\n\tData Found"+temp.getLst().get(i).getrId()+" at "+temp.getLst().get(i)+" position");
+                flag=1;
+                temp_room=temp.getLst().get(i);
+                break;
+            }
+        }
+        if(flag==0) {
+            System.out.println("\n\tRoom Not Found!");
+        }
 //        System.out.println("\n\tSelected Room Details :"+temp_room.toString());
         do{
             System.out.println("\n\t1]Rating\n\t2]No of Beds\n\t3]Room is Ac or not\n\t4]speciality\n\t");
@@ -157,7 +184,7 @@ public class Room_info {
                     break;
                 }
                 case 3: {
-                    System.out.println("Enter the if it is Ac Or Not:");
+                    System.out.println("Enter the if it is Ac Or Not: \n\tEnter 1 if AC and 0 for Non-AC: ");
                     int temp_ac=sc.nextInt();
                     temp_room.setAC(temp_ac);
                     break;
@@ -213,7 +240,7 @@ public class Room_info {
 
                 }
             }
-            System.out.println("\n\tDo you want to update more rooms: \n\tpress 1: ");
+            System.out.println("\n\tROOM UPDATED SUCCESSFULLY\n\tDo you want to update the room more: \n\tpress 1: ");
         }while (sc.nextInt()==1);
     }
 

@@ -28,9 +28,7 @@ public class Admin_info {
             ptr.setLst(lst);
             System.out.println("Enter the price of the room:");
             double temp_price = sc.nextDouble();
-
             ptr.setPrice(temp_price);
-
             System.out.println("Enter the number of rooms you want to add :: ");
             int n = sc.nextInt();
             for (int i = 0; i < n; i++) {
@@ -69,7 +67,7 @@ public class Admin_info {
             }
             System.out.println("-----------------------------------------------------------------------");
             System.out.println("\n\tDo you want to add more rooms of same category type:\n\tpress 1:");
-            System.out.println("\n\tRooms Added Successfully!");
+//            System.out.println("\n\tRooms Added Successfully!");
         } while (sc.nextInt() == 1);
     }
     public void insert_default(CategoryRooms cr)  {
@@ -155,7 +153,7 @@ public class Admin_info {
                     if (parent == null) {
                         root = null;
                         cur = null;
-                        System.out.println("Deleted The only node");
+                        System.out.println("Deleted The only Category");
                     } else {
                         if (parent.getPrice() > ele) {
                             parent.setLeft(null);
@@ -163,7 +161,7 @@ public class Admin_info {
                             parent.setRight(null);
                         }
 
-                        System.out.println("Deleted" + cur.getPrice());
+                        System.out.println("\n\tDeleted\n\t" + cur.getPrice());
                         cur = null;
                     }
                 } else if (cur.getLeft() != null && cur.getRight() == null) {
@@ -246,7 +244,7 @@ public class Admin_info {
                 if (cur.getPrice() == key) {
                     flag = 1;
                     System.out.println("-----------------------------------------------------------------------");
-                    System.out.println("Data found" + cur.getPrice());
+                    System.out.println("Data found\t" + cur.getPrice()+"\n\t"+cur.getLst());
                     System.out.println("-----------------------------------------------------------------------");
                     break;
                 }
@@ -257,9 +255,7 @@ public class Admin_info {
                 }
             }
             if (flag == 0) {
-                System.out.println("-----------------------------------------------------------------------");
-                System.out.println("Data not Found!");
-                System.out.println("-----------------------------------------------------------------------");
+                System.out.println("SORRY!");
             }
             return cur;
         }

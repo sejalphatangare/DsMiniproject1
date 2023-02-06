@@ -104,6 +104,9 @@ public class Main {
                                                         }
                                                         case 5: {
                                                             List<Customer> lst1=ci.getCustomerList();
+                                                            if(lst1.size()==0){
+                                                                System.out.println("\n\tNO DETAILS FOUND!");
+                                                            }
                                                             for(int i=0;i<lst1.size();i++){
                                                                 System.out.println(lst1.get(i));
                                                             }
@@ -236,7 +239,7 @@ public class Main {
                                                 int temp_book = sc.nextInt();
                                                 if (temp_book == 1) {
                                                     r2.bookRoomforCustomer(r, ci.getCustomerList());
-                                                    System.out.println("******PAY BILL*****: "+r.getPrice());
+                                                    System.out.println("******PAY BILL*****:\n "+r.getPrice());
                                                 } else {
                                                     System.out.println("Thank you Visit Again!");
                                                 }

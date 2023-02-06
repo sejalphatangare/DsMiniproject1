@@ -19,14 +19,6 @@ Room {
     private String description;
     private double price;
 
-    public boolean isUsageStatus() {
-        return usageStatus;
-    }
-
-    public void setUsageStatus(boolean usageStatus) {
-        this.usageStatus = usageStatus;
-    }
-
     public double getPrice() {
         return price;
     }
@@ -119,6 +111,14 @@ Room {
         return c;
     }
 
+    public boolean isUsageStatus() {
+        return usageStatus;
+    }
+
+    public void setUsageStatus(boolean usageStatus) {
+        this.usageStatus = usageStatus;
+    }
+
     public void setC(Customer c) {
         this.c = c;
     }
@@ -126,14 +126,14 @@ Room {
     @Override
     public String toString() {
         return
-                " \nRoom Number =" + rId +
-                ", Unique Room ='" + uniqueId + '\'' +
-                ", Rating of the Room =" + rating +
-                ", No. of Beds=" + beds +
-                ", Status ='" + usageStatus + '\'' +
-                ", Ac=" + isAC +
-                ", speciality='" + speciality + '\'' +
-                ", description='" + description + '\'' ;
+                " \n\tRoom Number =" + rId +
+                ",\n\tUnique Room ='" + uniqueId + '\'' +
+                ", \n\tRating of the Room =" + rating +
+                ", \n\tNo. of Beds=" + beds +
+                ", \n\tStatus ='" + usageStatus + '\'' +
+                ", \n\tAc=" + isAC +
+                ", \n\tspeciality='" + speciality + '\'' +
+                ", \n\tdescription='" + description + '\'' ;
     }
 
 
